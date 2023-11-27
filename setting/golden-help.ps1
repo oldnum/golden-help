@@ -40,7 +40,11 @@ function logos {
         } else {
             Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
             Write-Host " |"
-            Write-Host "[powershell] irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex" -ForegroundColor Red
+            Write-Host "[powershell] irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex"
+            Write-Host " |"
+            Write-Host '[cmd] powershell "irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex"'
+            Write-Host "`n Please run the command to install the new version  !!!" -ForegroundColor Red
+            Read-Host "`n[x] Press Enter to exit :"
             exit
         }
     } else {
