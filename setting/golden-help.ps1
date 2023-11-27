@@ -31,21 +31,26 @@ function logos {
 ║ ╦║ ║║   ║║║╣ ║║║───╠═╣║╣ ║  ╠═╝
 ╚═╝╚═╝╩═╝═╩╝╚═╝╝╚╝   ╩ ╩╚═╝╩═╝╩  
 [author] @oldnum"
-    $check_version = update
-    if ($check_version -eq "true") {
-        Write-Host "[stable version]" -ForegroundColor Green
-    } else {
-        Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
-        Write-Host " |"
-        Write-Host "[powershell] irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex" -ForegroundColor Red
-    }
     $result = check_inet 1
     if ($result -eq "true") {
-        Write-Host "[internet connection]`n" -ForegroundColor Green
+        $check_version = update
+        if ($check_version -eq "true") {
+            Write-Host "[stable version]" -ForegroundColor Green
+            Write-Host "[internet connection]`n" -ForegroundColor Green
+        } else {
+            Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
+            Write-Host " |"
+            Write-Host "[powershell] irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex" -ForegroundColor Red
+            Write-Host " |"
+            Write-Host "[admin] start auto update"
+            Start-Sleep -Seconds 2
+            Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex"
+            exit
+        }
     } else {
+        Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
         Write-Host "[internet connection]`n"  -ForegroundColor Red
     }
-
 }
 
 function home {
