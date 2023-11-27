@@ -41,10 +41,6 @@ function logos {
             Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
             Write-Host " |"
             Write-Host "[powershell] irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex" -ForegroundColor Red
-            Write-Host " |"
-            Write-Host "[admin] start auto update"
-            Start-Sleep -Seconds 2
-            Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", "Start-Sleep -Seconds 1; Remove-Item '$([System.IO.Path]::Combine($env:USERPROFILE, 'Downloads'))\golden-help-main' -Recurse -Force;irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex; exit"
             exit
         }
     } else {
