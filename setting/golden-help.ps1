@@ -41,7 +41,8 @@ function logos {
             Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
             Write-Host "[powershell] irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex"
             Write-Host '[cmd] powershell "irm https://raw.githubusercontent.com/oldnum/golden-help/main/setting/auto-install.ps1 | iex"'
-            Write-Host "`nPlease run the command to install the new version  !!!" -ForegroundColor Red
+            Write-Host "[internet connection]" -ForegroundColor Green
+            Write-Host "`nPlease run the command to install the new version  !!!`n" -ForegroundColor Red
         }
     } else {
         Write-Host "[old version] |new|-> https://github.com/oldnum/golden-help" -ForegroundColor Red
